@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #15141a;
+    --muted: #5b5b66;
+    --line: #d7d7db;
+    --hover: #f0f0f4;
+    --pick: #0060df;
+    --pick-text: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #2b2a33;
+      --text: #fbfbfe;
+      --muted: #bfbfc9;
+      --line: #52525e;
+      --hover: #3a3944;
+      --pick: #0df;
+      --pick-text: #15141a;
+    }
+  }
+  body {
+    margin: 0;
+    padding: 12px;
+    width: 250px;
+    background: var(--bg);
+    color: var(--text);
+    font: 13px/1.35 system-ui, sans-serif;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  button {
+    display: block;
+    width: 100%;
+    margin: 0 0 6px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  button:hover {
+    background: var(--hover);
+  }
+  button small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  button.selected {
+    border-color: var(--pick);
+    background: var(--pick);
+    color: var(--pick-text);
+  }
+  button.selected small {
+    color: inherit;
+  }
+  button.selected::after {
+    content: "✓";
+    float: right;
+    margin-top: -1.35em;
+  }
+  p {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+  <h1>Websites see this computer as:</h1>
+  <button data-choice="off">Linux<small>Normal Tor (add-on off)</small></button>
+  <button data-choice="windows">Windows<small>Biggest group of desktop Tor users</small></button>
+  <button data-choice="mac">Mac<small>Smaller group of desktop Tor users</small></button>
+  <button data-choice="android">Android<small>Phone. Some sites send mobile pages</small></button>
+  <p>Only use at the <b>Safest</b> security level. Goes back to Linux every time Tor starts.</p>
+  <script src="popup.js"></script>
+</body>
+</html>
